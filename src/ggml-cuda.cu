@@ -7755,7 +7755,7 @@ static void ggml_cuda_op_alibi(
     //GGML_ASSERT(ne01 + n_past == ne00);
     GGML_ASSERT(n_head == ne02);
 
-    const int n_heads_log2_floor = 1 << (int) floor(log2(n_head));
+    const int n_heads_log2_floor = 1 << (int) floor(log2((float)n_head));
 
     const float m0 = powf(2.0f, -(max_bias) / n_heads_log2_floor);
     const float m1 = powf(2.0f, -(max_bias / 2.0f) / n_heads_log2_floor);
